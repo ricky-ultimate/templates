@@ -79,7 +79,7 @@ Set-Alias nxp New-ExpressTemplateProject
 
 Now you can create new projects from anywhere:
 ```powershell
-New-ExpressTemplateProject my-new-api
+nxp my-new-api
 ```
 
 ## Template Repository
