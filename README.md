@@ -67,6 +67,9 @@ function New-ExpressTemplateProject {
     $scriptPath = "D:\path\to\your\scripts\express-be-template.ps1"
     & $scriptPath $ProjectName
 }
+
+# Short alias
+Set-Alias nxp New-ExpressTemplateProject
 ```
 
 3. Save the file and reload your profile:
