@@ -1,6 +1,6 @@
-# Express Backend Template Scripts
+# Template Scripts
 
-A collection of PowerShell scripts for scaffolding Express.js backend projects with TypeScript, Prisma, and PostgreSQL.
+A collection of scripts for scaffolding projects
 
 ## Scripts
 
