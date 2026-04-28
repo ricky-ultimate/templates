@@ -11,12 +11,18 @@ git clone https://github.com/ricky-ultimate/express-backend-starter-template.git
 
 Set-Location $ProjectName
 
-Write-Host "Removing old git history..." -ForegroundColor Yellow
-Remove-Item -Recurse -Force .git
+$hasExistingGit = Test-Path ".git"
 
-Write-Host "Initializing new git repository..." -ForegroundColor Yellow
-git init
-git branch -m master main
+if ($hasExistingGit) {
+    Write-Host "Detected existing git repository, skipping git init..." -ForegroundColor Yellow
+} else {
+    Write-Host "Removing old git history..." -ForegroundColor Yellow
+    Remove-Item -Recurse -Force .git
+
+    Write-Host "Initializing new git repository..." -ForegroundColor Yellow
+    git init
+    git branch -m master main
+}
 
 Write-Host "Installing dependencies..." -ForegroundColor Yellow
 npm install
