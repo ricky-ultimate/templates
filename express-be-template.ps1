@@ -11,14 +11,15 @@ git clone https://github.com/ricky-ultimate/express-backend-starter-template.git
 
 Set-Location $ProjectName
 
-$hasExistingGit = Test-Path ".git"
+Write-Host "Removing template git history..." -ForegroundColor Yellow
+Remove-Item -Recurse -Force .git
 
-if ($hasExistingGit) {
-    Write-Host "Detected existing git repository, skipping git init..." -ForegroundColor Yellow
+$parentGitPath = Get-Location | Split-Path -Parent | Join-Path -ChildPath ".git"
+$hasParentGit = Test-Path $parentGitPath
+
+if ($hasParentGit) {
+    Write-Host "Detected parent git repository, skipping git init..." -ForegroundColor Yellow
 } else {
-    Write-Host "Removing old git history..." -ForegroundColor Yellow
-    Remove-Item -Recurse -Force .git
-
     Write-Host "Initializing new git repository..." -ForegroundColor Yellow
     git init
     git branch -m master main
